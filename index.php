@@ -40,7 +40,7 @@
                         <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
                         <a href="create.php" class="btn btn-success pull-right">Create Project</a>
                     </div>
-<img src="../logo/image/2.jpg"width="30" height="30">
+<img src="../logo/image/2.jpg"width="200" height="200">
 <img src="../logo/image/3.jpg"width="200" height="200">
 <img src="../logo/image/1.jpg"width="200" height="200">
                     <?php
@@ -73,7 +73,9 @@
                                         echo "<td>" . $row['name'] . "</td>";
                                         echo "<td>" . $row['description'] . "</td>";
 										
-                                        echo "<td>" . $row['image'] . "</td>";
+                                echo "<td><img src= ../logo/image/" . $row['image'] . " alt='rose' width='50px' height='50px'></td>";
+
+
 
 										echo "<td>" . $row['sdate'] . "</td>";
 							            echo "<td>" . $row['edate'] . "</td>";
