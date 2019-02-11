@@ -36,30 +36,31 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header clearfix">
-                        <h2 class="pull-left">Product Details</h2>
+                        <h2 class="pull-left">Users Details</h2>
                         <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
-                        <a href="creates.php" class="btn btn-success pull-right">Create Product</a>
+                        <a href="create.php" class="btn btn-success pull-right">Create Project</a>
                     </div>
-
+<img src="../image/2.jpg"width="200" height="200">
+<img src="../image/3.jpg"width="200" height="200">
+<img src="../image/1.jpg"width="200" height="200">
                     <?php
                     // Include config file
                     require_once "config.php";
                     
                     // Attempt select query execution
-                    $sql = "SELECT * FROM product";
+                    $sql = "SELECT * FROM project";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
                                     echo "<tr>";
                                         echo "<th>#</th>";
-                                        echo "<th>Product_name</th>";
+                                        echo "<th>Name</th>";
                                         echo "<th>Description</th>";
                                         echo "<th>Image</th>";
-                                        echo "<th>Quantity</th>";
 										 echo "<th>Sdate</th>";
 										  echo "<th>Edate</th>";
-										   
+										   echo "<th>Status</th>";
                                         echo "<th>Action</th>";
 										
 										
@@ -69,18 +70,16 @@
                                 while($row = mysqli_fetch_array($result)){
                                     echo "<tr>";
                                         echo "<td>" . $row['id'] . "</td>";
-                                        echo "<td>" . $row['product_name'] . "</td>";
+                                        echo "<td>" . $row['name'] . "</td>";
                                         echo "<td>" . $row['description'] . "</td>";
 										
-                                echo "<td><img src= ../logo/image/" . $row['image'] . " alt='rose' width='50px' height='50px'></td>";
+                                echo "<td><img src= ../image/" . $row['image'] . " alt='rose' width='50px' height='50px'></td>";
 
 
 
-                                     echo "<td>" . $row['quantity'] . "</td>";
-                                     
 										echo "<td>" . $row['sdate'] . "</td>";
 							            echo "<td>" . $row['edate'] . "</td>";
-										
+										echo "<td>" . $row['status'] . "</td>";
                                         echo "<td>";
                                             echo "<a href='read.php?id=". $row['id'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
                                             echo "<a href='update.php?id=". $row['id'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";

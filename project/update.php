@@ -3,8 +3,8 @@
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$product_name = $description = $image = $quantity = $sdate = $edate = "";
-$product_name_err = $description_err = $image_err = $quantity_err = $sdate_err = $edate_err = "";
+$name = $description = $image = $sdate = $edate = $status = "";
+$name_err = $description_err = $image_err = $sdate_err = $edate_err = $status_err = "";
  
 // Processing form data when form is submitted
 if(isset($_POST["id"]) && !empty($_POST["id"])){
@@ -12,94 +12,82 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     $id = $_POST["id"];
     
     // Validate name
-   /* $product_input_name = trim($_POST["product_name"]);
-    if(empty($input_product_name)){
-        $product_name_err = "Please enter a product_name.";
-    } elseif(!filter_var($input_product_name, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-        $product_name_err = "Please enter a valid product_name.";
+    $input_name = trim($_POST["name"]);
+    if(empty($input_name)){
+        $name_err = "Please enter a name.";
+    } elseif(!filter_var($input_name, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+        $name_err = "Please enter a valid name.";
     } else{
-        $product_name = $input_product_name;
-    }*/
+        $name = $input_name;
+    }
     
 
 
-    $input_description = trim($_POST["description"]);
+      $input_description = trim($_POST["description"]);
     if(empty($input_description)){
-        $description_err = "Please enter an description.";
-    } elseif(!filter_var($input_description, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-        $description_err = "Please enter an description.";
+        $description_err = "Please enter an description.";     
     } else{
         $description = $input_description;
     }
 
 
-
-    $input_image = trim($_POST["image"]);
+      
+     $input_image = trim($_POST["image"]);
     if(empty($input_image)){
-        $image_err = "Please enter an image.";
-    } elseif(!filter_var($input_image, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-        $image_err = "Please enter an image.";
+        $image_err = "Please enter an image.";     
     } else{
         $image = $input_image;
     }
-
-
-
-
-     $input_status = trim($_POST["status"]);
-    if(empty($input_status)){
-        $status_err = "Please enter the quantity.";
-    } elseif(!filter_var($input_status, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-        $status_err = "Please enter the positive integer value.";
-    } else{
-        $quantity = $input_quantity;
-    }
-    
-    
-
-
-    $input_sdate = trim($_POST["sdate"]);
+   
+   
+     $input_sdate = trim($_POST["sdate"]);
     if(empty($input_sdate)){
-        $sdate_err = "Please enter an sdate.";
-    } elseif(!filter_var($input_sdate, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-        $sdate_err = "Please enter an sdate.";
+        $sdate_err = "Please enter an sdate.";     
     } else{
         $sdate = $input_sdate;
     }
+   
 
 
-    $input_edate = trim($_POST["edate"]);
+
+   $input_edate = trim($_POST["edate"]);
     if(empty($input_edate)){
-        $edate_err = "Please enter an edate.";
-    } elseif(!filter_var($input_edate, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-        $edate_err = "Please enter an edate.";
+        $edate_err = "Please enter an edate.";     
     } else{
         $edate = $input_edate;
     }
+   
 
 
+   $input_status = trim($_POST["status"]);
+    if(empty($input_status)){
+        $status_err = "Please enter an status.";     
+    } else{
+        $status = $input_status;
+    }
+   
 
    
     
     
     
+    
     // Check input errors before inserting in database
-    if(empty($product_name_err) && empty($description_err) && empty($image_err) && empty($quantity_err) && empty($sdate_err) && empty($edate_err)) {
+    if(empty($name_err) && empty($description_err) && empty($image_err) && empty($sdate_err) && empty($edate_err) && empty($status_err)) {
         // Prepare an update statement
-        $sql = "UPDATE product SET name=?, description=?, image=? quantity=?, sdate=?, edate=?,  WHERE id=?";
+        $sql = "UPDATE project SET name=?, description=?, image=? sdate=?, edate=?, status=?, WHERE id=?";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ssssssi", $param_name, $param_description, $param_image, $param_quantity, $param_sdate, $param_edate, $param_id);
+            mysqli_stmt_bind_param($stmt, "ssssssi", $param_name, $param_description, $param_image, $param_sdate, $param_edate, $param_status, $param_id);
             
             // Set parameters
-            $param_product_name = $product_name;
+            $param_name = $name;
             $param_description = $description;
             $param_image = $image;
-            $param_quantity = $quantity;
             $param_sdate = $sdate;
             $param_edate = $edate;
-            
+            $param_status = $status;
             $param_id = $id;
             
             // Attempt to execute the prepared statement
@@ -125,7 +113,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         $id =  trim($_GET["id"]);
         
         // Prepare a select statement
-        $sql = "SELECT * FROM product WHERE id = ?";
+        $sql = "SELECT * FROM project WHERE id = ?";
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "i", $param_id);
@@ -145,10 +133,9 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                     $name = $row["name"];
                     $description = $row["description"];
                     $image = $row["image"];
-                    $quantity = $row["quantity"];
                     $sdate = $row["sdate"];
                     $edate = $row["edate"];
-                    
+                    $status = $row["status"];
                 } else{
                     // URL doesn't contain valid id. Redirect to error page
                     header("location: error.php");
@@ -196,20 +183,16 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                     </div>
                     <p>Please edit the input values and submit to update the record.</p>
                     <form action="<?php echo htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>" method="post">
-                        <div class="form-group <?php echo (!empty($product_name_err)) ? 'has-error' : ''; ?>">
-                            <label>Product_name</label>
-                            <input type="text" name="product_name" class="form-control" value="<?php echo $product_name; ?>">
-                            <span class="help-block"><?php echo $product_name_err;?></span>
+                        <div class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control" value="<?php echo $name; ?>">
+                            <span class="help-block"><?php echo $name_err;?></span>
                         </div>
-
-
                         <div class="form-group <?php echo (!empty($description_err)) ? 'has-error' : ''; ?>">
                             <label>Description</label>
                             <textarea name="description" class="form-control"><?php echo $description; ?></textarea>
                             <span class="help-block"><?php echo $description_err;?></span>
                         </div>
-
-
                         <div class="form-group <?php echo (!empty($image_err)) ? 'has-error' : ''; ?>">
                             <label>Image</label>
                             <input type="text" name="image" class="form-control" value="<?php echo $image; ?>">
@@ -220,15 +203,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
 
 
 
-                         <div class="form-group <?php echo (!empty($quantity_err)) ? 'has-error' : ''; ?>">
-                            <label>Quantity</label>
-                            <textarea name="quantity" class="form-control"><?php echo $quantity; ?></textarea>
-                            <span class="help-block"><?php echo $quantity_err;?></span>
-                        </div>
-
-
-
-<div class="form-group <?php echo (!empty($sdate_err)) ? 'has-error' : ''; ?>">
+                       <div class="form-group <?php echo (!empty($sdate_err)) ? 'has-error' : ''; ?>">
                             <label>Sdate</label>
                             <textarea name="sdate" class="form-control"><?php echo $sdate; ?></textarea>
                             <span class="help-block"><?php echo $sdate_err;?></span>
@@ -245,7 +220,11 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                         </div>
 
 
-                        
+                        <div class="form-group <?php echo (!empty($status_err)) ? 'has-error' : ''; ?>">
+                            <label>Status</label>
+                            <textarea name="status" class="form-control"><?php echo $status; ?></textarea>
+                            <span class="help-block"><?php echo $status_err;?></span>
+                        </div>
 
 
 

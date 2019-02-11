@@ -32,7 +32,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                
             } else{
                 // URL doesn't contain valid id parameter. Redirect to error page
-                header("location: error.php");
+                header("location: errors.php");
                 exit();
             }
             
@@ -48,7 +48,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
     mysqli_close($link);
 } else{
     // URL doesn't contain id parameter. Redirect to error page
-    header("location: error.php");
+    header("location: errors.php");
     exit();
 }
 ?>
@@ -82,7 +82,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                         <p class="form-control-static"><?php echo $row["description"]; ?></p>
                     </div>
 					<div class="form-group">
-                        <label>Image</label>
+                        <label>Product_Image</label>
                         <p class="form-control-static"><?php echo $row["image"]; ?></p>
                     </div>
 
@@ -100,7 +100,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                         <p class="form-control-static"><?php echo $row["edate"]; ?></p>
                     </div>
                     
-                    <p><a href="index.php" class="btn btn-primary">Back</a></p>
+                    <p><a href="indexs.php" class="btn btn-primary">Back</a></p>
                 </div>
             </div>        
         </div>
