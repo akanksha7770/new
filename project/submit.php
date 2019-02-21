@@ -61,7 +61,6 @@ if(!empty($_POST['stripeToken'])){
         //include database config file
         include_once 'config.php';
         
-        
         //insert tansaction data into the database
         $sql = "INSERT INTO orders(name,email,card_num,card_cvc,card_exp_month,card_exp_year,item_name,item_number,item_price,item_price_currency,paid_amount,paid_amount_currency,txn_id,payment_status,created,modified) VALUES('".$name."','".$email."','".$card_num."','".$card_cvc."','".$card_exp_month."','".$card_exp_year."','".$itemName."','".$itemNumber."','".$itemPrice."','".$currency."','".$amount."','".$currency."','".$balance_transaction."','".$status."','".$date."','".$date."')";
         //$insert = $db->query($link, $sql));
@@ -98,7 +97,7 @@ if(!empty($_POST['stripeToken'])){
 
             if(mysqli_stmt_execute($stmt)){
                 // Records created successfully. Redirect to landing page
-                header("location: submit.php");
+                header("location: welcomes.php");
                 exit();
             } else{
                 echo "Something went wrong. Please try again later.";

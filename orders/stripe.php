@@ -53,7 +53,7 @@ $(document).ready(function() {
 <span class="payment-errors"></span>
 
 <!-- stripe payment form -->
-<form action="details.php" method="POST" id="paymentFrm">
+<form action="submit.php" method="POST" id="paymentFrm">
 
     <p>
         <label>Name</label>
@@ -78,7 +78,7 @@ $(document).ready(function() {
         <input type="text" name="exp_year" size="4" class="card-expiry-year"/>
     </p>
     <button type="submit" id="payBtn">Submit Payment</button>
-    <a href="details.php" class="btn btn-default">Cancel</a>
+    <a href="stripe.php" class="btn btn-default">Cancel</a>
 </form>
 
 
