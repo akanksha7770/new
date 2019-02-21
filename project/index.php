@@ -44,9 +44,15 @@
                         <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
                         <a href="create.php" class="btn btn-success pull-right">Create Project</a>
                     </div>
+<<<<<<< HEAD:project/index.php
 <img src="../project/image/2.jpg"width="200" height="200">
 <img src="../project/image/3.jpg"width="200" height="200">
 <img src="../project/image/1.jpg"width="200" height="200">
+=======
+<img src="../image/2.jpg"width="200" height="200">
+<img src="../image/3.jpg"width="200" height="200">
+<img src="../image/1.jpg"width="200" height="200">
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45:project/index.php
                     <?php
                     // Include config file
                     require_once "config.php";
@@ -79,7 +85,11 @@
                                         echo "<td>" . $row['name'] . "</td>";
                                         echo "<td>" . $row['description'] . "</td>";
 										
+<<<<<<< HEAD:project/index.php
                                 echo "<td><img src= ../project/image/" . $row['image'] . " alt='rose' width='50px' height='50px'></td>";
+=======
+                                echo "<td><img src= ../image/" . $row['image'] . " alt='rose' width='50px' height='50px'></td>";
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45:project/index.php
 
 
 

@@ -21,48 +21,91 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         $name = $name;
     }
     
+<<<<<<< HEAD:project/update.php
     $input_description = trim($_POST["description"]);
+=======
+
+
+      $input_description = trim($_POST["description"]);
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45:project/update.php
     if(empty($input_description)){
         $description_err = "Please enter an description.";     
     } else{
         $description = $input_description;
     }
+<<<<<<< HEAD:project/update.php
     
     
     $input_image = trim($_POST["image"]);
+=======
+
+
+      
+     $input_image = trim($_POST["image"]);
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45:project/update.php
     if(empty($input_image)){
         $image_err = "Please enter an image.";     
     } else{
         $image = $input_image;
     }
+<<<<<<< HEAD:project/update.php
 
    
     
     
     $input_sdate = trim($_POST["sdate"]);
+=======
+   
+   
+     $input_sdate = trim($_POST["sdate"]);
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45:project/update.php
     if(empty($input_sdate)){
         $sdate_err = "Please enter an sdate.";     
     } else{
         $sdate = $input_sdate;
     }
+<<<<<<< HEAD:project/update.php
     
     $input_edate = trim($_POST["edate"]);
+=======
+   
+
+
+
+   $input_edate = trim($_POST["edate"]);
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45:project/update.php
     if(empty($input_edate)){
         $edate_err = "Please enter an edate.";     
     } else{
         $edate = $input_edate;
     }
+<<<<<<< HEAD:project/update.php
     
 
 
      $input_status = trim($_POST["status"]);
+=======
+   
+
+
+   $input_status = trim($_POST["status"]);
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45:project/update.php
     if(empty($input_status)){
         $status_err = "Please enter an status.";     
     } else{
         $status = $input_status;
     }
+<<<<<<< HEAD:project/update.php
 
     // Validate salary
+=======
+   
+
+   
+    
+    
+    
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45:project/update.php
     
     // Check input errors before inserting in database
     if(empty($name_err) && empty($description_err) && empty($image_err) &&  empty($sdate_err) && empty($edate_err) && empty($status_err)){
@@ -192,11 +235,21 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                             <input type="text" name="image" class="form-control" value="<?php echo $image; ?>">
                             <span class="help-block"><?php echo $image_err;?></span>
                         </div>
+<<<<<<< HEAD:project/update.php
                         
                         <div class="form-group <?php echo (!empty($sdate_err)) ? 'has-error' : ''; ?>">
                             <label>Start Date</label>
                             <input type="date" name="sdate" class="form-control" value="<?php echo $sdate; ?>">
                             <span class`="help-block"><?php echo $sdate_err;?></span>
+=======
+
+
+
+                       <div class="form-group <?php echo (!empty($sdate_err)) ? 'has-error' : ''; ?>">
+                            <label>Sdate</label>
+                            <textarea name="sdate" class="form-control"><?php echo $sdate; ?></textarea>
+                            <span class="help-block"><?php echo $sdate_err;?></span>
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45:project/update.php
                         </div>
                         <div class="form-group <?php echo (!empty($edate_err)) ? 'has-error' : ''; ?>">
                             <label>End Date</label>

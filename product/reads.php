@@ -29,7 +29,11 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                 $quantity = $row["quantity"];
 				$sdate = $row["sdate"];
 				$edate = $row["edate"];
+<<<<<<< HEAD
                $price = $row["price"];
+=======
+               
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45
             } else{
                 // URL doesn't contain valid id parameter. Redirect to error page
                 header("location: errors.php");
@@ -82,7 +86,11 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                         <p class="form-control-static"><?php echo $row["description"]; ?></p>
                     </div>
 					<div class="form-group">
+<<<<<<< HEAD
                         <label>Image</label>
+=======
+                        <label>Product_Image</label>
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45
                         <p class="form-control-static"><?php echo $row["image"]; ?></p>
                     </div>
 
@@ -100,16 +108,23 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                         <p class="form-control-static"><?php echo $row["edate"]; ?></p>
                     </div>
                     
+<<<<<<< HEAD
 
                     <div class="form-group">
                         <label>Price</label>
                         <p class="form-control-static"><?php echo $row["price"]; ?></p>
                     </div>
+=======
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45
                     <p><a href="indexs.php" class="btn btn-primary">Back</a></p>
                 </div>
             </div>        
         </div>
     </div>
 </body>
+<<<<<<< HEAD
 </html>
 
+=======
+</html>
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45

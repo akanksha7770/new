@@ -59,7 +59,11 @@
                                         echo "<th>Quantity</th>";
 										 echo "<th>Sdate</th>";
 										  echo "<th>Edate</th>";
+<<<<<<< HEAD
 										   echo "<th>Price</th>";
+=======
+										   
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45
                                         echo "<th>Action</th>";
 										
 										
@@ -72,7 +76,11 @@
                                         echo "<td>" . $row['product_name'] . "</td>";
                                         echo "<td>" . $row['description'] . "</td>";
 										
+<<<<<<< HEAD
                                 echo "<td><img src= ../product/image/" . $row['image'] . " alt='rose' width='50px' height='50px'></td>";
+=======
+                                echo "<td><img src= ../image/" . $row['image'] . " alt='rose' width='50px' height='50px'></td>";
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45
 
 
 
@@ -80,9 +88,13 @@
                                      
 										echo "<td>" . $row['sdate'] . "</td>";
 							            echo "<td>" . $row['edate'] . "</td>";
+<<<<<<< HEAD
 										echo "<td>" . $row['price'] . "</td>";
 
                                         
+=======
+										
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45
                                         echo "<td>";
                                             echo "<a href='reads.php?id=". $row['id'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
                                             echo "<a href='updates.php?id=". $row['id'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";

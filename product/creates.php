@@ -4,8 +4,13 @@ include 'welcomes.php';
 require_once "config.php";
  
 // Define variables and initialize with empty values
+<<<<<<< HEAD
 $product_name = $description = $image = $quantity = $sdate = $edate = $price ="";
 $product_name_err = $description_err = $image_err = $quantity_err = $sdate_err = $edate_err = $price_err ="";
+=======
+$product_name = $description = $image = $quantity = $sdate = $edate = "";
+$product_name_err = $description_err = $image_err = $quantity_err = $sdate_err = $edate_err = "";
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -61,6 +66,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 	
 
+<<<<<<< HEAD
    $input_price = trim($_POST["price"]);
     if(empty($input_price)){
         $price_err = "Please enter an price.";     
@@ -76,6 +82,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "ssssssss", $param_product_name, $param_description, $param_image,$param_quantity,$param_sdate,$param_edate,$param_price,$param_users_id);
+=======
+   
+    
+    // Check input errors before inserting in database
+    if(empty($product_name_err) && empty($description_err) && empty($image_err) && empty($quantity_err) && empty($sdate_err) && empty($edate_err)){
+        // Prepare an insert statement
+        $sql = "INSERT INTO product (product_name,description,image,quantity,sdate,edate,users_id ) VALUES (?, ?, ?, ? , ? ,?,?)";
+         
+        if($stmt = mysqli_prepare($link, $sql)){
+            // Bind variables to the prepared statement as parameters
+            mysqli_stmt_bind_param($stmt, "sssssss", $param_product_name, $param_description, $param_image,$param_quantity,$param_sdate,$param_edate,$param_users_id);
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45
             
             // Set parameters
             $param_product_name = $product_name;
@@ -84,7 +102,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_quantity = $quantity;
 			$param_sdate = $sdate;
 			$param_edate = $edate;
+<<<<<<< HEAD
             $param_price = $price;
+=======
+            
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45
             $param_users_id = htmlspecialchars($_SESSION["id"]);
             
             // Attempt to execute the prepared statement
@@ -100,7 +122,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Close statement
         mysqli_stmt_close($stmt);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45
     
     // Close connection
     mysqli_close($link);
@@ -146,7 +171,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
                         <div class="form-group <?php echo (!empty($image_err)) ? 'has-error' : ''; ?>">
+<<<<<<< HEAD
                             <label>Image</label>
+=======
+                            <label> Product_Image</label>
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45
                             <input type="file" name="image" class="form-control" value="<?php echo $image; ?>">
                             <span class="help-block"><?php echo $image_err;?></span>
                         </div>
@@ -173,12 +202,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <span class="help-block"><?php echo $edate_err;?></span>
                         </div>
 						
+<<<<<<< HEAD
 
                         <div class="form-group <?php echo (!empty($price_err)) ? 'has-error' : ''; ?>">
                             <label>Price</label>
                             <input type="text" name="price" class="form-control" value="<?php echo $price; ?>">
                             <span class="help-block"><?php echo $price_err;?></span>
                         </div>
+=======
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45
   
                         <input type="submit" class="btn btn-primary" value="Submit">
                         <a href="indexs.php" class="btn btn-default">Cancel</a>

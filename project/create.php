@@ -150,7 +150,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 <option value="false">False</option>
                                   
                                        </select>
+<<<<<<< HEAD:project/create.php
                            <span class="help-block"><?php echo $status_err;?></span>
+=======
+                       <span class="help-block"><?php echo $status_err;?></span>
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45:project/create.php
                         </div>
                         <input type="submit" class="btn btn-primary" value="Submit">
                         <a href="index.php" class="btn btn-default">Cancel</a>

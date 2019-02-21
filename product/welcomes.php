@@ -29,7 +29,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <b><?php echo htmlspecialchars($_SESSION["id"]); ?></b>
     </div>
     <p>
+<<<<<<< HEAD
         <a href="indexs.php" class="btn btn-info">Create Orders</a>
+=======
+>>>>>>> 0d6fd774483693c3e63cc6ec8289c09b2be76f45
 	    <a href="indexs.php" class="btn btn-info">Create Product</a>
         <a href="reset-passwords.php" class="btn btn-warning">Reset Your Password</a>
         <a href="logouts.php" class="btn btn-danger">Sign Out of Your Account</a>
